@@ -1,9 +1,8 @@
 name: Node.js CI
-language: node_js
+#language: node_js
 
 node_js:
 - node
-- 'lts/*'
 
 env:
 - MY_VAR=EverythignIsAwesome
