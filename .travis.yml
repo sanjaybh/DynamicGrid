@@ -1,12 +1,13 @@
 name: Node.js CI
 language: node_js
+node_js:
+- "stable"
 
-#node_js:
-#- node
+#env:
+#- MY_VAR=EverythignIsAwesome
+#- NODE_ENV=TEST
 
-env:
-- MY_VAR=EverythignIsAwesome
-- NODE_ENV=TEST
+#script: gulp travis
 
 cache: npm
 on:
