@@ -1,7 +1,11 @@
-image: atlassian/default-image:2
-
-before_deploy: "echo 'ready?'"
-
-deploy: "echo 'buil scripts runs here' "
-
-after_deploy: "echo 'ready for bash files to get executed.' "
+language: node_js
+node_js:
+  - "4"
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8

@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sanjaybh/DynamicGrid.git"
+  },
   "scripts": {
     "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "test": "vows --spec"
   },
   "dependencies": {},
   "devDependencies": {
