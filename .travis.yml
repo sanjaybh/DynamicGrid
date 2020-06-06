@@ -1,8 +1,8 @@
 name: Node.js CI
-#language: node_js
+language: node_js
 
-node_js:
-- node
+#node_js:
+#- node
 
 env:
 - MY_VAR=EverythignIsAwesome
