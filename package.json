@@ -1,7 +1,8 @@
 {
   "name": "grid-library",
+  "author": "Sanjay Bhan",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple nodejs, travis and parcel demo",
   "main": "index.html",
   "repository": {
     "type": "git",
@@ -10,12 +11,12 @@
   "scripts": {
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
-    "test": "vows --spec"
+    "test": "./node_modules/jshint/bin/jshint hello.js"
   },
-  "dependencies": {},
   "devDependencies": {
     "@babel/core": "7.2.0",
-    "parcel-bundler": "^1.6.1"
+    "parcel-bundler": "^1.6.1",
+    "jshint": "^2.8.0"
   },
   "keywords": []
 }
