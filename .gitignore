@@ -1,6 +1,9 @@
 # Ignore Mac system files
 .DS_store
 
+# Distribution folder
+dist
+
 # Ignore node_modules folder
 node_modules
 
