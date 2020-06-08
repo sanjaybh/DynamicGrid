@@ -1,34 +1,39 @@
-name: Node.js CI
 language: node_js
 node_js:
-- "stable"
-
-#env:
-#- MY_VAR=EverythignIsAwesome
-#- NODE_ENV=TEST
-
-#script: gulp travis
+  - 11.6.0
 
 cache: npm
-on:
-  push:
-    branches: [ feature ]
-  pull_request:
-    branches: [ feature ]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        #node-version: [10.x, 12.x, 14.x]
+#build lifecycle
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm run build
-    - run: npm start
-    - echo 'feature branch triggered build successfully.'
+install:
+  - npm ci
+
+script:
+  - npm test
+  - npm run build
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local_dir: dist
+  on:
+    branch: deploy
+
+
+
+# skip below life cycle as of now
+#before_install:
+#insatll:
+#  - npm ci
+#  - npm i -g webpack
+#before_script:
+#script:
+#after_success:
+#after_failure:
+#after_script:
+
+#before_deploy:
+#depoy:
+#after_deploy:

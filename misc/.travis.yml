@@ -1,0 +1,88 @@
+name: Node.js CI
+language: node_js
+node_js:
+- "stable"
+
+#env:
+#- MY_VAR=EverythignIsAwesome
+#- NODE_ENV=TEST
+
+#script: gulp travis
+
+cache: npm
+on:
+  push:
+    branches: [ feature ]
+  pull_request:
+    branches: [ feature ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        #node-version: [10.x, 12.x, 14.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm run build
+    - run: npm start
+    - echo 'feature branch triggered build successfully.'
+
+
+/*
+services:
+   - docker
+
+env:
+  - NPM_TARGET=test
+  - NPM_TARGET=lint
+  - NPM_TARGET=coverage
+
+before_install:
+  - docker build -t probot-hello .
+
+script:
+  - docker run --rm probot-hello npm run $NPM_TARGET
+  - <build your code>
+
+after_success:
+  - set -x -v;
+    set -e;
+    if [ "${NPM_TARGET}" = "test" ]; then
+      docker tag probot-hello probot-hello:$(git rev-parse HEAD)
+    else
+      echo "skipping docker tag";
+    fi;
+    docker images;
+    set +x +v;
+
+
+before_install:
+install:
+  - npm ci
+  - npm i -g webpack
+
+before_script:
+script:
+after_success:
+after_failure:
+after_script:
+before_deploy:
+
+deploy:
+  provider: pages
+  skip-clearup: true
+  github-token: $GITHUB_TOKEN
+  local_dir: build
+  on:
+    branch: master
+
+
+after_deploy:
+
+*/

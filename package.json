@@ -8,6 +8,12 @@
     "type": "git",
     "url": "git://github.com/sanjaybh/DynamicGrid.git"
   },
+  "keywords":[
+    "node",
+    "framework",
+    "easy",
+    "minimal"
+  ],
   "scripts": {
     "start": "parcel index.html --open",
     "build": "parcel build index.html",
