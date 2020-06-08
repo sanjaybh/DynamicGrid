@@ -3,7 +3,12 @@ node_js:
   - 11.6.0
 
 cache: npm
-
+on:
+  push:
+    branches: [ feature ]
+  pull_request:
+    branches: [ feature ]
+    
 #build lifecycle
 
 install:
