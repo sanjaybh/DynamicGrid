@@ -19,7 +19,7 @@ deploy:
   github-token: $GITHUB_TOKEN
   local_dir: dist
   on:
-    branch: deploy
+    branch: feature
 
 
 
